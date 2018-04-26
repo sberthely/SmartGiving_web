@@ -1,30 +1,29 @@
-import { createStore, combineReducers } from 'redux'
-import { updateDrawer, updateNewGift, globalData } from './redux/reducers'
+import { createStore, combineReducers } from "redux";
+import { updateDrawer, updateNewGift, globalData } from "./redux/reducers";
 
-import data from './data/user'
-import requests from './data/requests'
-
+import data from "./data/user";
+import requests from "./data/requests";
 
 const initialState = {
-	updateDrawer: {
-		donationDrawerOpen: false,
-		donationValue: undefined,
-		selectedRequest: {},
-	},
-	updateNewGift: {
-		giftData: {},
-	},
-	globalData: {
-		...data,
-		...requests
-	}
-}
+  updateDrawer: {
+    donationDrawerOpen: false,
+    donationValue: undefined,
+    selectedCharity: {}
+  },
+  updateNewGift: {
+    giftData: {}
+  },
+  globalData: {
+    ...data,
+    ...requests
+  }
+};
 
 export const store = createStore(
-	combineReducers({
-		updateDrawer,
-		updateNewGift,
-		globalData
-	}),
-	initialState
-)
+  combineReducers({
+    updateDrawer,
+    updateNewGift,
+    globalData
+  }),
+  initialState
+);

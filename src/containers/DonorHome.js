@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
-import { toggleDrawer, selectRequest } from "../redux/actions";
+import { toggleDrawer, selectCharity } from "../redux/actions";
 
 import CardPage from "../components/CardPage";
 
@@ -19,42 +19,46 @@ import "../style/DonorHome.css";
 class DonorHome extends Component {
   render() {
     const storeState = this.props.store.getState();
-    const selectDonate = request => () => {
-      this.props.showRequest(true, request);
+    console.log("Charity");
+    console.log(storeState.selectedCharity);
+
+    const selectDonate = charity => () => {
+      this.props.showRequest(true, charity);
     };
-    const learnMore = request => () => {
+    const learnMore = recipient => () => {
       this.props.history.push({
-        pathname: "/gift/" + request.ethGiftAddr,
-        state: { request }
+        pathname: "/gift/" + recipient.gifts[0].ethGiftAddr,
+        state: { recipient }
       });
     };
 
-    const requests = storeState.globalData.requests;
-    const cards = requests.map((r, i) => {
+    const recipients = storeState.globalData.recipients;
+    const cards = recipients.map((r, i) => {
+      const gift = r.gifts[0];
       return (
         <CharityCard
           key={i}
-          title={r.charity.title}
-          description={r.summary}
-          image={ImageLibrary(r.charity.image)}
-          onImageClick={learnMore(r)}
-          preButtons={DonorPreButtons(r.tags)}
+          title={gift.title}
+          description={gift.summary}
+          image={ImageLibrary(r.image)}
+          onImageClick={learnMore(gift)}
+          preButtons={DonorPreButtons(gift.tags)}
           buttons={DonorActionButtons(learnMore(r), selectDonate(r))}
           postButtons={[]}
         />
       );
     });
 
-    const drawerRequest = () => {
-      if (Object.keys(storeState.updateDrawer.selectedRequest).length === 0) {
+    const drawerCharity = () => {
+      if (Object.keys(storeState.updateDrawer.selectedCharity).length === 0) {
         return undefined;
       }
-      return storeState.selectedRequest;
+      return storeState.selectedCharity;
     };
     const drawer = (
       <DrawerFactory
         store={this.props.store}
-        request={drawerRequest()}
+        charity={drawerCharity()}
         type="donate"
       />
     );
@@ -65,8 +69,8 @@ class DonorHome extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    showRequest: (showDrawer, request = {}) => {
-      dispatch(selectRequest(request));
+    showRequest: (showDrawer, charity = {}) => {
+      dispatch(selectCharity(charity));
       dispatch(toggleDrawer(showDrawer));
     }
   };

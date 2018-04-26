@@ -1,79 +1,83 @@
 {
-  "_id": {
-    "$oid": "f3351a534a9049df0a7e5f59"
-  },
-  "gifts": [
+  "recipients": [
     {
-      "title": "school supplies",
-      "ethGiftAddr": "0xB7777bf557eFbb092D48365912dA3b1b64af515d",
-      "dollars": 333,
       "_id": {
-        "$oid": "5ff4f330b2c368d860b4b077"
+        "$oid": "f3351a534a9049df0a7e5f59"
       },
-      "items": [
+      "gifts": [
         {
-          "itemDescription": "Pens",
-          "quantity": 40,
-          "pricePerUnit": 13
-        },
-        {
-          "itemDescription": "Color pencil (12 ct)",
-          "quantity": 20,
-          "pricePerUnit": 1
-        },
-        {
-          "itemDescription": "Notebooks",
-          "quantity": 60,
-          "pricePerUnit": 2
-        },
-        {
-          "itemDescription": "Jump ropes",
-          "quantity": 30,
-          "pricePerUnit": 3
-        },
-        {
-          "itemDescription": "Chalk",
-          "quantity": 60,
-          "pricePerUnit": 4
-        },
-        {
-          "itemDescription": "Basketballs",
-          "quantity": 10,
-          "pricePerUnit": 5
-        },
-        {
-          "itemDescription": "Watercolor paint (12 ct)",
-          "quantity": 10,
-          "pricePerUnit": 6
+          "title": "school supplies",
+          "ethGiftAddr": "0xB7777bf557eFbb092D48365912dA3b1b64af515d",
+          "dollars": 333,
+          "_id": {
+            "$oid": "5ff4f330b2c368d860b4b077"
+          },
+          "items": [
+            {
+              "itemDescription": "Pens",
+              "quantity": 40,
+              "pricePerUnit": 13
+            },
+            {
+              "itemDescription": "Color pencil (12 ct)",
+              "quantity": 20,
+              "pricePerUnit": 1
+            },
+            {
+              "itemDescription": "Notebooks",
+              "quantity": 60,
+              "pricePerUnit": 2
+            },
+            {
+              "itemDescription": "Jump ropes",
+              "quantity": 30,
+              "pricePerUnit": 3
+            },
+            {
+              "itemDescription": "Chalk",
+              "quantity": 60,
+              "pricePerUnit": 4
+            },
+            {
+              "itemDescription": "Basketballs",
+              "quantity": 10,
+              "pricePerUnit": 5
+            },
+            {
+              "itemDescription": "Watercolor paint (12 ct)",
+              "quantity": 10,
+              "pricePerUnit": 6
+            }
+          ],
+          "orgTags": ["#children", "#education", "#colombia"],
+          "background":
+            "We are starting a new program for children age 5-12 starting this summer 2018. While parents are usually at work, we will engage the children in different activities to develop, enhance, and provide venues to express their creativity. One of the best times we have with our children is using art as an outlet. These supplies will greatly support the children to express themselves fully and allow them to spend time effectively when adults are not around in the house.",
+          "challenge":
+            "Because of the lack of available school supply stores in our region and money to have them ship from bigger markets, families have a hard time attaining the school supplies for their children and we also have difficulty finding them efficiently. Most of the supplies we have currently are very old, broken, or unusable. They are also not prioritized in the local government as they need to answer to more urgent and bigger needs posed by the communities. Since families cannot attain them, we cannot expect children to bring necessary supplies when they come to our program.",
+          "summary":
+            "Gift school supplies to students aged 5-12 at Palmira Elementary School in Colombia!",
+          "expiry": {
+            "$date": "2018-07-07T07:00:00.000Z"
+          },
+          "creationDate": {
+            "$date": "2018-04-16T19:02:07.926Z"
+          }
         }
       ],
-      "orgTags": ["#children", "#education", "#colombia"],
-      "background":
-        "We are starting a new program for children age 5-12 starting this summer 2018. While parents are usually at work, we will engage the children in different activities to develop, enhance, and provide venues to express their creativity. One of the best times we have with our children is using art as an outlet. These supplies will greatly support the children to express themselves fully and allow them to spend time effectively when adults are not around in the house.",
-      "challenge":
-        "Because of the lack of available school supply stores in our region and money to have them ship from bigger markets, families have a hard time attaining the school supplies for their children and we also have difficulty finding them efficiently. Most of the supplies we have currently are very old, broken, or unusable. They are also not prioritized in the local government as they need to answer to more urgent and bigger needs posed by the communities. Since families cannot attain them, we cannot expect children to bring necessary supplies when they come to our program.",
-      "summary":
-        "Gift school supplies to students aged 5-12 at Palmira Elementary School in Colombia!",
-      "expiry": {
-        "$date": "2018-07-07T07:00:00.000Z"
-      },
-      "creationDate": {
-        "$date": "2018-04-16T19:02:07.926Z"
-      }
+      "title": "Palmira Elementary School",
+      "facebook": "www.facebook.com",
+      "instagram": "www.instagram.com",
+      "twitter": "www.twitter.com",
+      "contact_name": "Humberto Rodriguez",
+      "about":
+        "Palmira Secondary School is in Palmira, Colombia, located Southwest of Colombia. We are a village based school for students between ages 5-12 throughout the year so that they can receive the necessary education and support when adults are not present at home during the day. Other than the typical school subjects, such as math and writing, our focus is to also engage the students in extracurricular activities as an outlet of their creativity and emotions. These activities include arts and craft, physical education (PE), and dancing.",
+      "email": "humbertorodriguez12@gmail.com",
+      "location": "Calle 36c #4432, Colombia, Valle del Cauca, Palmira",
+      "website": "http://mongoosejs.com/docs/middleware.html",
+      "ethRecipientAddr": "21e21ewqd32",
+      "image":
+        "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.istockphoto.com%2Fresources%2Fimages%2FPhotoFTLP%2Fimg_82250973.jpg&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fmy%2Fstock-photos&docid=xE_6PwXfIVYb-M&tbnid=X_bARaIdWMRkaM%3A&vet=10ahUKEwiYzpGB47_aAhXqjFQKHbqbDnEQMwjhASgDMAM..i&w=700&h=533&safe=active&bih=733&biw=1178&q=photos&ved=0ahUKEwiYzpGB47_aAhXqjFQKHbqbDnEQMwjhASgDMAM&iact=mrc&uact=8",
+      "__v": 3
     }
-  ],
-  "title": "Palmira Elementary School",
-  "facebook": "www.facebook.com",
-  "instagram": "www.instagram.com",
-  "twitter": "www.twitter.com",
-  "contact_name": "Humberto Rodriguez",
-  "about":
-    "Palmira Secondary School is in Palmira, Colombia, located Southwest of Colombia. We are a village based school for students between ages 5-12 throughout the year so that they can receive the necessary education and support when adults are not present at home during the day. Other than the typical school subjects, such as math and writing, our focus is to also engage the students in extracurricular activities as an outlet of their creativity and emotions. These activities include arts and craft, physical education (PE), and dancing.",
-  "email": "humbertorodriguez12@gmail.com",
-  "location": "Calle 36c #4432, Colombia, Valle del Cauca, Palmira",
-  "website": "http://mongoosejs.com/docs/middleware.html",
-  "ethRecipientAddr": "21e21ewqd32",
-  "image":
-    "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.istockphoto.com%2Fresources%2Fimages%2FPhotoFTLP%2Fimg_82250973.jpg&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fmy%2Fstock-photos&docid=xE_6PwXfIVYb-M&tbnid=X_bARaIdWMRkaM%3A&vet=10ahUKEwiYzpGB47_aAhXqjFQKHbqbDnEQMwjhASgDMAM..i&w=700&h=533&safe=active&bih=733&biw=1178&q=photos&ved=0ahUKEwiYzpGB47_aAhXqjFQKHbqbDnEQMwjhASgDMAM&iact=mrc&uact=8",
-  "__v": 3
+  ]
 }

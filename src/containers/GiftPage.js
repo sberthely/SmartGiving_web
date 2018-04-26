@@ -20,7 +20,7 @@ import {
 } from "material-ui";
 import { kStyleElevation, kStylePaper } from "../style/styleConstants";
 
-import { toggleDrawer, selectRequest } from "../redux/actions";
+import { toggleDrawer, selectCharity } from "../redux/actions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
@@ -44,6 +44,7 @@ class GiftPage extends Component {
         const gift = data.reduce((finalVal, currentVal) => {
           return currentVal.ethGiftAddr === giftID ? currentVal : finalVal;
         });
+        console.log(gift);
         this.setState({ gift });
       }
     };
@@ -53,7 +54,7 @@ class GiftPage extends Component {
 
   giftData() {
     const storeState = this.props.store.getState();
-    return storeState.globalData.requests.filter(
+    return storeState.globalData.recipients[0].gifts.filter(
       request => request.ethGiftAddr === this.props.match.params.giftID
     )[0];
   }
@@ -66,6 +67,23 @@ class GiftPage extends Component {
   }
 
   render() {
+    const storeState = this.props.store.getState();
+
+    const charity = storeState.globalData.recipients.reduce(
+      (finalCharity, currentCharity) => {
+        if (finalCharity !== undefined) return finalCharity;
+        const gift = charity.gifts.reduce((finalGift, currentGift) => {
+          return currentGift.ethGiftAddr === this.props.match.params.giftID
+            ? currentGift
+            : finalGift;
+        });
+        return gift === undefined ? finalCharity : currentCharity;
+      }
+    );
+
+    console.log("Charity");
+    console.log(charity);
+
     const handleDonationChange = event => {
       let donationValue = Math.floor(this.giftData().dollars).toFixed(2);
       const n = event.target.value;
@@ -83,14 +101,14 @@ class GiftPage extends Component {
       this.state.donationValue === 0
         ? this.defaultCost(this.state.gift)
         : this.state.donationValue;
-    const selectDonate = () => {
+    const selectDonate = charity => () => {
       // CALL MORGANS SHIT
       DonateEthereum(error => {
         if (error !== undefined) {
           console.log(`ERROR : ${error}`);
         }
       });
-      this.props.showDonate(true, donationValue(), giftData.charity);
+      this.props.showDonate(true, donationValue(), charity);
     };
     return (
       <div>
@@ -101,14 +119,14 @@ class GiftPage extends Component {
               <Card className="gift-info-image-card">
                 <CardMedia
                   className="gift-info-image"
-                  title={giftData.charity.title}
-                  image={ImageLibrary(giftData.charity.image)}
+                  title={charity.title}
+                  image={ImageLibrary(charity.image)}
                 >
                   <div className="gift-background-color">
                     <div className="gift-title-container">
                       <h1 className="gift-page-title">{giftData.title}</h1>
                       <div className="gift-page-author">
-                        for {giftData.charity.title}
+                        for {charity.title}
                       </div>
                     </div>
                   </div>
@@ -174,7 +192,7 @@ class GiftPage extends Component {
                     className="gift-donate-button"
                     variant="raised"
                     color="primary"
-                    onClick={selectDonate}
+                    onClick={selectDonate(charity)}
                   >
                     Donate
                   </Button>
@@ -182,10 +200,10 @@ class GiftPage extends Component {
               </Paper>
               <Paper elevation={kStyleElevation} style={kStylePaper}>
                 <h2 className="gift-background-title"> About Recipient </h2>
-                <div className="gift-background">{giftData.charity.about}</div>
+                <div className="gift-background">{charity.about}</div>
                 <h2 className="gift-background-title"> Learn More </h2>
                 <div className="gift-background">
-                  <ContactInfo user={giftData.charity} />
+                  <ContactInfo user={charity} />
                 </div>
               </Paper>
             </div>
@@ -193,6 +211,7 @@ class GiftPage extends Component {
           <DrawerFactory
             store={this.props.store}
             request={giftData}
+            charity={charity}
             donationValue={parseFloat(donationValue())}
             type="donate"
           />
@@ -204,8 +223,8 @@ class GiftPage extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    showDonate: (showDrawer, donationValue, request = {}) => {
-      dispatch(selectRequest(request));
+    showDonate: (showDrawer, donationValue, charity = {}) => {
+      dispatch(selectCharity(charity));
       dispatch(toggleDrawer(showDrawer, donationValue));
     }
   };
